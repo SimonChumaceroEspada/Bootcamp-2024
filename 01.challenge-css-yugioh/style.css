@@ -1,0 +1,133 @@
+body {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.contendor-principal {
+  background-color: #bd684a;
+  width: 30vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 12px solid #27213b;
+  border-radius: 2%;
+}
+
+.titulo {
+  color: black;
+  background-color: #bd684a;
+  border: 3px solid black;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  flex: 0.1;
+  width: 26vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3%;
+  margin-top: 3%;
+}
+
+.card-name {
+  width: 100%;
+  align-self: center;
+  margin-left: 5%;
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.card-type {
+  width: 5vw;
+}
+
+.card-type img {
+  width: 50%;
+  height: 100%;
+  margin-left: 33%;
+  object-fit: contain;
+}
+
+.sub-titulo {
+  display: flex;
+  justify-content: end; 
+  align-items: center;
+  background-color: #bd684a;
+  margin-bottom: 1%;
+  width: 21vw;
+  flex: 0.10;
+}
+
+.level-start {
+  width: 5%;
+  margin: 1%;
+}
+
+.contenedor {
+  background-color: lightseagreen;
+  width: 19vw;
+  border: 8px solid #3f4971;
+  border-radius: 3%;
+  flex: 0.6;
+}
+
+.card-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenedor-inferior {
+  background-color: #ddb29e;
+  border: 3px solid black;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  width: 26vw;
+  flex: 0.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor-inferior span {
+  font-size: 0.95vw;
+  font-weight: bold;
+}
+
+.parrafo-superior {
+  background-color: ddb29e;
+  width: 25vw;
+  margin: 0;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  flex: 0.90;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 1vw;
+}
+
+.parrafo-inferior {
+  background-color: #ddb29e;
+  width: 100%;
+  flex: 0.1;
+  border-top: 3px solid black;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+}
+
+.parrafo-inferior P {
+  margin: 0;
+  margin-right: 2%;
+  font-size: 1.3vw;
+  font-weight: bolder;
+}
