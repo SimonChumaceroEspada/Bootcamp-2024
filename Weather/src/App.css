@@ -1,0 +1,84 @@
+
+
+body{
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: url("https://img.freepik.com/vector-gratis/cielo-fondo-videoconferencia_23-2148639325.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1719964800&semt=ais_user");
+  background-size: 100% 100%;
+  background-position: center;
+}
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+
+}
+
+#citySearch {
+  width: 60vw;
+  padding: 1em;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  border: 3px solid black;
+  margin-right: 1em;
+}
+
+#searchButton {
+  padding: 1em;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.previousCityButton{
+  padding: 1em;
+  font-size: 1.5em;
+  border: 3px solid white;
+  border-radius: 10px;
+  background-color: #4d6177;
+  color: white;
+  cursor: pointer;
+  margin-right: 2em;
+
+}
+
+.previousCityButton:hover{
+  background-color: #153e69;
+}
+
+#weatherData{
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 1.5em;
+  margin-top: 1em;
+  background-color: rgba(255, 255, 255, 0.5); font-size: 3vw;
+  border: 3px solid black;
+}
