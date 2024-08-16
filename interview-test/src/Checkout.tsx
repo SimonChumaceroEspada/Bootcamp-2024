@@ -1,10 +1,12 @@
-import styles from './Checkout.module.css';
-import { LoadingIcon } from './Icons';
-// import { getProducts } from './dataService';
+import React, { useState, useEffect } from "react";
+import { useProducts } from "./useProducts";
+import Product from "./Product";
+import { LoadingIcon } from "./Icons";
+import styles from "./Checkout.module.css";
 
-// You are provided with an incomplete <Checkout /> component.
+// You are provided with an incomplete <Checkout /> component. /ok
 // You are not allowed to add any additional HTML elements.
-// You are not allowed to use refs.
+// You are not allowed to use refs. /ok
 
 // Demo video - You can view how the completed functionality should look at: https://drive.google.com/file/d/1bcXpGUzJUyUwITOqEn8QPj8ZOgUbTGQD/view?usp=sharing
 
@@ -20,54 +22,55 @@ import { LoadingIcon } from './Icons';
 //  - The total should reflect any discount that has been applied
 //  - All dollar amounts should be displayed to 2 decimal places
 
-
-
-const Product = ({ id, name, availableCount, price, orderedQuantity, total }) => {
-  return (
-    <tr>
-      <td>{id}</td>
-      <td>{name}</td>
-      <td>{availableCount}</td>
-      <td>${price}</td>
-      <td>{orderedQuantity}</td>   
-      <td>${total}</td>
-      <td>
-        <button className={styles.actionButton}>+</button>
-        <button className={styles.actionButton}>-</button>
-      </td>
-    </tr>    
-  );
-}
-
-
 const Checkout = () => {
+  const { products, loading, handleAdd, handleRemove } = useProducts();
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const newTotal = products.reduce(
+      (acc, product) => acc + product.orderedQuantity * product.price,
+      0
+    );
+    setTotal(newTotal > 1000 ? newTotal * 0.9 : newTotal);
+  }, [products]);
+
   return (
     <div>
-      <header className={styles.header}>        
-        <h1>Electro World</h1>        
+      <header className={styles.header}>
+        <h1>Electro World</h1>
       </header>
       <main>
-        <LoadingIcon />        
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Product ID</th>
-              <th>Product Name</th>
-              <th># Available</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          {/* Products should be rendered here */}
-          </tbody>
-        </table>
+        {loading ? (
+          <LoadingIcon />
+        ) : (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <Product
+                  key={product.id}
+                  {...product}
+                  total={(product.orderedQuantity * product.price).toFixed(2)}
+                  onAdd={() => handleAdd(product.id)}
+                  onRemove={() => handleRemove(product.id)}
+                />
+              ))}
+            </tbody>
+          </table>
+        )}
         <h2>Order summary</h2>
-        <p>Discount: $ </p>
-        <p>Total: $ </p>       
+        <p>Total: ${total.toFixed(2)}</p>
+        {total > 1000 && <p>Discount applied: 10%</p>}
       </main>
     </div>
   );
